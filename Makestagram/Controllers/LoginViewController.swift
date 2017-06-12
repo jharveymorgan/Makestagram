@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseAuthUI
 
 class LoginViewController: UIViewController {
     
     // MARK - Properties
+    typealias  FIRUser = FirebaseAuth.User
+    //let user: FIRUser? = Auth.auth().currentUser
     @IBOutlet weak var loginButton: UIButton!
     
     // MARK - VC Lifecycle
@@ -21,7 +25,29 @@ class LoginViewController: UIViewController {
     
     // MARK - IBActions
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-        print("login button tapped")
+        // implement AuthViewController within FirebaseUI:
+        
+        guard let authUI = FUIAuth.defaultAuthUI()
+            else { return }
+        // assign delegate
+        authUI.delegate = self
+        
+        // present the auth view controller
+        let authViewController = authUI.authViewController()
+        present(authViewController, animated: true)
     }
     
+} // end class
+
+// MARK - Extension(s)
+extension LoginViewController: FUIAuthDelegate {
+    func authUI(_ authUI: FUIAuth, didSignInWith user: FIRUser?, error: Error?) {
+        // error handling
+        if let error = error {
+            assertionFailure("Error signing in: \(error.localizedDescription)")
+            return
+        }
+        
+        print("handle user sign up / login")
+    }
 }
