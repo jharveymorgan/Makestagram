@@ -9,21 +9,23 @@
 import UIKit
 import FirebaseAuth
 import FirebaseAuthUI
+import FirebaseDatabase
+
+typealias  FIRUser = FirebaseAuth.User
 
 class LoginViewController: UIViewController {
     
-    // MARK - Properties
-    typealias  FIRUser = FirebaseAuth.User
-    //let user: FIRUser? = Auth.auth().currentUser
+    // MARK: - Properties
     @IBOutlet weak var loginButton: UIButton!
+    //let user: FIRUser? = Auth.auth().currentUser
     
-    // MARK - VC Lifecycle
+    // MARK: - VC Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // any setup after loading view
     }
     
-    // MARK - IBActions
+    // MARK: - IBActions
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         // implement AuthViewController within FirebaseUI:
         
@@ -39,7 +41,7 @@ class LoginViewController: UIViewController {
     
 } // end class
 
-// MARK - Extension(s)
+// MARK: - Extension(s)
 extension LoginViewController: FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith user: FIRUser?, error: Error?) {
         // error handling
@@ -47,7 +49,28 @@ extension LoginViewController: FUIAuthDelegate {
             assertionFailure("Error signing in: \(error.localizedDescription)")
             return
         }
+        // check that user exists by unwrapping optional
+        guard  let user = user
+            else { return }
         
-        print("handle user sign up / login")
+        // path to find user's information in database
+        let userRef = Database.database().reference().child("users").child(user.uid)
+        
+        // read data from previous path
+        userRef.observe(.value, with: { [unowned self] (snapshot) in
+            if let user = User(snapshot: snapshot) {
+                User.setCurrent(user)
+                
+                // after existing user logs in, direct to main storyboard
+                let storyboard = UIStoryboard(name: "Main", bundle: .main)
+                if let initialViewController = storyboard.instantiateInitialViewController() {
+                    self.view.window?.rootViewController = initialViewController
+                    self.view.window?.makeKeyAndVisible()
+                }
+            } else {
+                // new user, set username
+                self.performSegue(withIdentifier: "toCreateUsername", sender: self)
+            }
+        })
     }
 }
