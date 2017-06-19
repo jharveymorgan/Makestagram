@@ -69,10 +69,10 @@
 		BA2538BE1EEB3F5700A3D077 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BAEFA6CD1EF84653000BC451 /* Constants.swift */,
 				BA349C2E1EEB3D300084F65F /* LaunchScreen.storyboard */,
 				BA349C341EEB3D4A0084F65F /* Info.plist */,
 				BA349C321EEB3D410084F65F /* GoogleService-Info.plist */,
-				BAEFA6CD1EF84653000BC451 /* Constants.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
