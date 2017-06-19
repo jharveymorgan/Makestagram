@@ -19,14 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
-        // load login storyboard when user opens the app:
-        // instance of the Login storyboard
-        let storyboard = UIStoryboard(name: "Login", bundle: .main)
-        // if the story board has an initial view set, set it as the rootViewController and position it above any other views
-        if let initialViewController = storyboard.instantiateInitialViewController() {
-            window?.rootViewController = initialViewController
-            window?.makeKeyAndVisible()
-        }
+        // load login storyboard when user opens the app
+        let initialViewController = UIStoryboard.initialViewController(for: .login)
+        window?.rootViewController = initialViewController
+        window?.makeKeyAndVisible()
         
         return true
     }
