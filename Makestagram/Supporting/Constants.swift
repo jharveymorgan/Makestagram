@@ -18,4 +18,8 @@ struct Constants {
         static let uid = "uid"
         static let username = "username"
     }
+    
+    struct TabButtons {
+        static let takePhoto = 1
+    }
 }

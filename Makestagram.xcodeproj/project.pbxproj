@@ -18,6 +18,10 @@
 		BA4EA4151EEB936000C2C096 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4EA4141EEB936000C2C096 /* LoginViewController.swift */; };
 		BA63B76E1EF394B800B455F8 /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA63B76D1EF394B800B455F8 /* UserServices.swift */; };
 		BAD6CEF81EEEF733008746CD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD6CEF71EEEF733008746CD /* User.swift */; };
+		BAE76CB01EF95503006D683F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE76CAF1EF95503006D683F /* MainTabBarController.swift */; };
+		BAE76CB31EF95D2F006D683F /* MGPhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE76CB21EF95D2F006D683F /* MGPhotoHelper.swift */; };
+		BAE76CB51EF97102006D683F /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE76CB41EF97102006D683F /* StorageService.swift */; };
+		BAE76CB81EF97563006D683F /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE76CB71EF97563006D683F /* PostService.swift */; };
 		BAEFA6CE1EF84653000BC451 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEFA6CD1EF84653000BC451 /* Constants.swift */; };
 		BAEFA6D11EF84A5D000BC451 /* Storyboard+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEFA6D01EF84A5D000BC451 /* Storyboard+Utility.swift */; };
 		BAEFA6D31EF8631C000BC451 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEFA6D21EF8631C000BC451 /* HomeViewController.swift */; };
@@ -38,6 +42,10 @@
 		BA4EA4141EEB936000C2C096 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controllers/LoginViewController.swift; sourceTree = "<group>"; };
 		BA63B76D1EF394B800B455F8 /* UserServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserServices.swift; path = Services/UserServices.swift; sourceTree = "<group>"; };
 		BAD6CEF71EEEF733008746CD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BAE76CAF1EF95503006D683F /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabBarController.swift; path = Controllers/MainTabBarController.swift; sourceTree = "<group>"; };
+		BAE76CB21EF95D2F006D683F /* MGPhotoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGPhotoHelper.swift; path = Helpers/MGPhotoHelper.swift; sourceTree = "<group>"; };
+		BAE76CB41EF97102006D683F /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageService.swift; path = Services/StorageService.swift; sourceTree = "<group>"; };
+		BAE76CB71EF97563006D683F /* PostService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostService.swift; path = Services/PostService.swift; sourceTree = "<group>"; };
 		BAEFA6CD1EF84653000BC451 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Supporting/Constants.swift; sourceTree = "<group>"; };
 		BAEFA6D01EF84A5D000BC451 /* Storyboard+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Storyboard+Utility.swift"; path = "Extensions/Storyboard+Utility.swift"; sourceTree = "<group>"; };
 		BAEFA6D21EF8631C000BC451 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Controllers/HomeViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +101,7 @@
 				BA2E2CB81EF1BFDA003220EF /* CreateUsernameViewController.swift */,
 				BAEFA6D21EF8631C000BC451 /* HomeViewController.swift */,
 				BAEFA6D41EF86333000BC451 /* FindFriendsViewController.swift */,
+				BAE76CAF1EF95503006D683F /* MainTabBarController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -125,6 +134,7 @@
 				BA2538BF1EEB3FD700A3D077 /* Storyboards */,
 				BA349C1D1EEB3A960084F65F /* Assets.xcassets */,
 				BAEFA6CF1EF84A31000BC451 /* Extensions */,
+				BAE76CB11EF95CEF006D683F /* Helpers */,
 				BA2538BE1EEB3F5700A3D077 /* Supporting Files */,
 			);
 			path = Makestagram;
@@ -134,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				BA63B76D1EF394B800B455F8 /* UserServices.swift */,
+				BAE76CB41EF97102006D683F /* StorageService.swift */,
+				BAE76CB71EF97563006D683F /* PostService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -144,6 +156,14 @@
 				BAD6CEF71EEEF733008746CD /* User.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		BAE76CB11EF95CEF006D683F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BAE76CB21EF95D2F006D683F /* MGPhotoHelper.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		BAEFA6CF1EF84A31000BC451 /* Extensions */ = {
@@ -290,12 +310,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAD6CEF81EEEF733008746CD /* User.swift in Sources */,
+				BAE76CB51EF97102006D683F /* StorageService.swift in Sources */,
 				BA4EA4151EEB936000C2C096 /* LoginViewController.swift in Sources */,
+				BAE76CB01EF95503006D683F /* MainTabBarController.swift in Sources */,
 				BAEFA6D11EF84A5D000BC451 /* Storyboard+Utility.swift in Sources */,
 				BAEFA6D31EF8631C000BC451 /* HomeViewController.swift in Sources */,
+				BAE76CB31EF95D2F006D683F /* MGPhotoHelper.swift in Sources */,
 				BA2E2CB91EF1BFDA003220EF /* CreateUsernameViewController.swift in Sources */,
 				BAEFA6D51EF86333000BC451 /* FindFriendsViewController.swift in Sources */,
 				BAEFA6CE1EF84653000BC451 /* Constants.swift in Sources */,
+				BAE76CB81EF97563006D683F /* PostService.swift in Sources */,
 				BA63B76E1EF394B800B455F8 /* UserServices.swift in Sources */,
 				BA349C171EEB3A960084F65F /* AppDelegate.swift in Sources */,
 			);
