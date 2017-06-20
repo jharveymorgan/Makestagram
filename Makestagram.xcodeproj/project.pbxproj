@@ -23,6 +23,8 @@
 		BAE76CB81EF97563006D683F /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE76CB71EF97563006D683F /* PostService.swift */; };
 		BAE76CBA1EF97A1D006D683F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE76CB91EF97A1D006D683F /* Post.swift */; };
 		BAE76CBC1EF97A46006D683F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE76CBB1EF97A46006D683F /* User.swift */; };
+		BAE76CBE1EF990E9006D683F /* UIImage+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE76CBD1EF990E9006D683F /* UIImage+Size.swift */; };
+		BAE76CC01EF99245006D683F /* StorageReference+Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE76CBF1EF99245006D683F /* StorageReference+Post.swift */; };
 		BAEFA6CE1EF84653000BC451 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEFA6CD1EF84653000BC451 /* Constants.swift */; };
 		BAEFA6D11EF84A5D000BC451 /* Storyboard+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEFA6D01EF84A5D000BC451 /* Storyboard+Utility.swift */; };
 		BAEFA6D31EF8631C000BC451 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEFA6D21EF8631C000BC451 /* HomeViewController.swift */; };
@@ -48,6 +50,8 @@
 		BAE76CB71EF97563006D683F /* PostService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostService.swift; path = Services/PostService.swift; sourceTree = "<group>"; };
 		BAE76CB91EF97A1D006D683F /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Post.swift; path = Models/Post.swift; sourceTree = "<group>"; };
 		BAE76CBB1EF97A46006D683F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		BAE76CBD1EF990E9006D683F /* UIImage+Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Size.swift"; path = "Extensions/UIImage+Size.swift"; sourceTree = "<group>"; };
+		BAE76CBF1EF99245006D683F /* StorageReference+Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "StorageReference+Post.swift"; path = "Extensions/StorageReference+Post.swift"; sourceTree = "<group>"; };
 		BAEFA6CD1EF84653000BC451 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Supporting/Constants.swift; sourceTree = "<group>"; };
 		BAEFA6D01EF84A5D000BC451 /* Storyboard+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Storyboard+Utility.swift"; path = "Extensions/Storyboard+Utility.swift"; sourceTree = "<group>"; };
 		BAEFA6D21EF8631C000BC451 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Controllers/HomeViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				BAEFA6D01EF84A5D000BC451 /* Storyboard+Utility.swift */,
+				BAE76CBD1EF990E9006D683F /* UIImage+Size.swift */,
+				BAE76CBF1EF99245006D683F /* StorageReference+Post.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -318,10 +324,12 @@
 				BAEFA6D11EF84A5D000BC451 /* Storyboard+Utility.swift in Sources */,
 				BAE76CBA1EF97A1D006D683F /* Post.swift in Sources */,
 				BAEFA6D31EF8631C000BC451 /* HomeViewController.swift in Sources */,
+				BAE76CBE1EF990E9006D683F /* UIImage+Size.swift in Sources */,
 				BAE76CB31EF95D2F006D683F /* MGPhotoHelper.swift in Sources */,
 				BA2E2CB91EF1BFDA003220EF /* CreateUsernameViewController.swift in Sources */,
 				BAE76CBC1EF97A46006D683F /* User.swift in Sources */,
 				BAEFA6D51EF86333000BC451 /* FindFriendsViewController.swift in Sources */,
+				BAE76CC01EF99245006D683F /* StorageReference+Post.swift in Sources */,
 				BAEFA6CE1EF84653000BC451 /* Constants.swift in Sources */,
 				BAE76CB81EF97563006D683F /* PostService.swift in Sources */,
 				BA63B76E1EF394B800B455F8 /* UserServices.swift in Sources */,
