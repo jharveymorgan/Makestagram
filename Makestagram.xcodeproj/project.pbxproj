@@ -25,6 +25,8 @@
 		BAE76CBC1EF97A46006D683F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE76CBB1EF97A46006D683F /* User.swift */; };
 		BAE76CBE1EF990E9006D683F /* UIImage+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE76CBD1EF990E9006D683F /* UIImage+Size.swift */; };
 		BAE76CC01EF99245006D683F /* StorageReference+Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE76CBF1EF99245006D683F /* StorageReference+Post.swift */; };
+		BAE76CC21EF997AE006D683F /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAE76CC11EF997AE006D683F /* Home.storyboard */; };
+		BAE76CC51EF9AB1C006D683F /* PostImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE76CC41EF9AB1C006D683F /* PostImageCell.swift */; };
 		BAEFA6CE1EF84653000BC451 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEFA6CD1EF84653000BC451 /* Constants.swift */; };
 		BAEFA6D11EF84A5D000BC451 /* Storyboard+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEFA6D01EF84A5D000BC451 /* Storyboard+Utility.swift */; };
 		BAEFA6D31EF8631C000BC451 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEFA6D21EF8631C000BC451 /* HomeViewController.swift */; };
@@ -52,6 +54,8 @@
 		BAE76CBB1EF97A46006D683F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		BAE76CBD1EF990E9006D683F /* UIImage+Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Size.swift"; path = "Extensions/UIImage+Size.swift"; sourceTree = "<group>"; };
 		BAE76CBF1EF99245006D683F /* StorageReference+Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "StorageReference+Post.swift"; path = "Extensions/StorageReference+Post.swift"; sourceTree = "<group>"; };
+		BAE76CC11EF997AE006D683F /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Home.storyboard; path = Storyboards/Home.storyboard; sourceTree = "<group>"; };
+		BAE76CC41EF9AB1C006D683F /* PostImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostImageCell.swift; path = Views/PostImageCell.swift; sourceTree = "<group>"; };
 		BAEFA6CD1EF84653000BC451 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Supporting/Constants.swift; sourceTree = "<group>"; };
 		BAEFA6D01EF84A5D000BC451 /* Storyboard+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Storyboard+Utility.swift"; path = "Extensions/Storyboard+Utility.swift"; sourceTree = "<group>"; };
 		BAEFA6D21EF8631C000BC451 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Controllers/HomeViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				BA349C301EEB3D380084F65F /* Main.storyboard */,
+				BAE76CC11EF997AE006D683F /* Home.storyboard */,
 				BA4EA4121EEB91B000C2C096 /* Login.storyboard */,
 			);
 			name = Storyboards;
@@ -136,6 +141,7 @@
 				BA349C161EEB3A960084F65F /* AppDelegate.swift */,
 				BA63B76F1EF394BE00B455F8 /* Services */,
 				BA2538C01EEB3FF300A3D077 /* View Controllers */,
+				BAE76CC31EF9AAC8006D683F /* Views */,
 				BAD6CEF91EEEF738008746CD /* Models */,
 				BA2538BF1EEB3FD700A3D077 /* Storyboards */,
 				BA349C1D1EEB3A960084F65F /* Assets.xcassets */,
@@ -171,6 +177,14 @@
 				BAE76CB21EF95D2F006D683F /* MGPhotoHelper.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		BAE76CC31EF9AAC8006D683F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BAE76CC41EF9AB1C006D683F /* PostImageCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		BAEFA6CF1EF84A31000BC451 /* Extensions */ = {
@@ -258,6 +272,7 @@
 				BA349C311EEB3D380084F65F /* Main.storyboard in Resources */,
 				BA349C331EEB3D410084F65F /* GoogleService-Info.plist in Resources */,
 				BA349C1E1EEB3A960084F65F /* Assets.xcassets in Resources */,
+				BAE76CC21EF997AE006D683F /* Home.storyboard in Resources */,
 				BA4EA4131EEB91B000C2C096 /* Login.storyboard in Resources */,
 				BA349C2F1EEB3D300084F65F /* LaunchScreen.storyboard in Resources */,
 			);
@@ -278,7 +293,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		90649C721BE13196D76AEAA5 /* [CP] Embed Pods Frameworks */ = {
@@ -324,6 +339,7 @@
 				BAEFA6D11EF84A5D000BC451 /* Storyboard+Utility.swift in Sources */,
 				BAE76CBA1EF97A1D006D683F /* Post.swift in Sources */,
 				BAEFA6D31EF8631C000BC451 /* HomeViewController.swift in Sources */,
+				BAE76CC51EF9AB1C006D683F /* PostImageCell.swift in Sources */,
 				BAE76CBE1EF990E9006D683F /* UIImage+Size.swift in Sources */,
 				BAE76CB31EF95D2F006D683F /* MGPhotoHelper.swift in Sources */,
 				BA2E2CB91EF1BFDA003220EF /* CreateUsernameViewController.swift in Sources */,

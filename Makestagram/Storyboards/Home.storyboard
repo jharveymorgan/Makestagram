@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="osa-Qm-9mc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="G9J-as-6TR">
+            <objects>
+                <viewController id="nlP-ZP-Sjd" customClass="HomeViewController" customModule="Makestagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4ay-hm-Ygc"/>
+                        <viewControllerLayoutGuide type="bottom" id="AuG-g7-gbN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OvD-vc-3hz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m8A-cT-xKL">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostImageCell" rowHeight="375" id="t1A-aX-Dat" customClass="PostImageCell" customModule="Makestagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="375"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t1A-aX-Dat" id="8R0-YR-hea">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zxy-oZ-vdk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zxy-oZ-vdk" firstAttribute="top" secondItem="8R0-YR-hea" secondAttribute="top" id="0B2-g9-b0f"/>
+                                                <constraint firstAttribute="bottom" secondItem="zxy-oZ-vdk" secondAttribute="bottom" id="PxI-og-lxz"/>
+                                                <constraint firstItem="zxy-oZ-vdk" firstAttribute="leading" secondItem="8R0-YR-hea" secondAttribute="leading" id="eE8-N9-jOm"/>
+                                                <constraint firstAttribute="trailing" secondItem="zxy-oZ-vdk" secondAttribute="trailing" id="gKa-TA-KQy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="postImageView" destination="zxy-oZ-vdk" id="7jW-xx-wZF"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="nlP-ZP-Sjd" id="kIZ-bP-PFk"/>
+                                    <outlet property="delegate" destination="nlP-ZP-Sjd" id="CVb-UE-rMl"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="m8A-cT-xKL" secondAttribute="trailing" id="9r4-oi-ywa"/>
+                            <constraint firstItem="m8A-cT-xKL" firstAttribute="leading" secondItem="OvD-vc-3hz" secondAttribute="leading" id="M4Q-le-Ttg"/>
+                            <constraint firstItem="m8A-cT-xKL" firstAttribute="top" secondItem="OvD-vc-3hz" secondAttribute="top" id="cdB-aq-Ddb"/>
+                            <constraint firstAttribute="bottom" secondItem="m8A-cT-xKL" secondAttribute="bottom" id="ubM-Jl-gSb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="DlM-eV-Auk"/>
+                    <connections>
+                        <outlet property="tableView" destination="m8A-cT-xKL" id="cTs-7g-twr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JZl-ab-KR3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-212" y="580.65967016491754"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gSd-on-OcQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="osa-Qm-9mc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="tab_home_black" id="eLS-WX-dde">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DG5-u3-Q05">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nlP-ZP-Sjd" kind="relationship" relationship="rootViewController" id="uUb-V5-IbJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ms0-xR-B93" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1015.2" y="581.55922038980509"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tab_home_black" width="25" height="25"/>
+    </resources>
+</document>

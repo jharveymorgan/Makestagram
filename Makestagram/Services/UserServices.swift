@@ -12,7 +12,7 @@ import FirebaseDatabase
 
 // for user networking code
 struct UserService {
-    // read from database
+    // read/get user from Firebase Database
     static func show(forUID uid: String, completion: @escaping (User?) -> Void) {
         let ref = Database.database().reference().child("users").child(uid)
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -24,7 +24,7 @@ struct UserService {
         })
     }
     
-    
+    // write to Firebase Database
     static func create(_ firUser: FIRUser, username: String, completion: @escaping (User?) -> Void) {
         // create dictionary with username
         let userAttrs = ["username": username]
@@ -44,6 +44,20 @@ struct UserService {
                 completion(user)
             })
         }
-    }//end create
+    }
+    
+    // read/get all post(s) from Firebase Database
+    static func posts(for user: User, completion: @escaping ([Post]) -> Void) {
+        let ref = Database.database().reference().child("posts").child(user.uid)
+        
+        ref.observe(.value, with: { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
+                return completion([])
+            }
+            
+            let posts = snapshot.reversed().flatMap(Post.init)
+            completion(posts)
+        })
+    }
     
 }// end struct
