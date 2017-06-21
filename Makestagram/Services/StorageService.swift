@@ -9,6 +9,8 @@
 import UIKit
 import FirebaseStorage
 
+// upload image to Firebase
+// write new Post object to database that stores the image URL returned from previous step
 struct StorageService {
     // method for uploading images to Firebase Storage
     static func uploadImage(_ image: UIImage, at reference: StorageReference, completion: @escaping (URL?) -> Void) {

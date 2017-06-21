@@ -74,12 +74,21 @@ extension HomeViewController: UITableViewDataSource {
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "PostActionCell") as! PostActionCell
-            cell.timeAgoLabel.text = timestampFormatter.string(from: post.creationDate)
+            //cell.timeAgoLabel.text = timestampFormatter.string(from: post.creationDate)
+            cell.delegate = self
+            configureCell(cell, with: post)
             
             return cell
         default:
             fatalError("Error: unexpected indexPath.")
         }
+    }
+    
+    func configureCell(_ cell: PostActionCell, with post: Post) {
+        cell.timeAgoLabel.text = timestampFormatter.string(from: post.creationDate)
+        cell.likeButton.isSelected = post.isLiked
+        cell.likeCountLabel.text = "\(post.likeCount) likes"
+        
     }
 }
 
@@ -97,6 +106,42 @@ extension HomeViewController: UITableViewDelegate {
             return PostActionCell.height
         default:
             fatalError()
+        }
+    }
+}
+
+// MARK: - PostActionCellDelegate
+extension HomeViewController: PostActionCellDelegate {
+    func didTapLikeButton(_ likeButton: UIButton, on cell: PostActionCell) {
+        // check there is a path for the given cell
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        
+        // so user doesn't accidentally send mulitple requests by tapping so quickly
+        likeButton.isUserInteractionEnabled = false
+        // get the correct post
+        let post = posts[indexPath.section]
+        
+        // like or unlike the post based on isLiked
+        LikeService.setIsLiked(!post.isLiked, for: post) { (success) in
+            
+            // let user interact with the button again when the closure returns
+            defer { likeButton.isUserInteractionEnabled = true }
+            
+            // if something is wrong with the network request
+            guard success else { return }
+            
+            // if network request is successful, change the likeCount and isLiked
+            post.likeCount += !post.isLiked ? 1 : -1
+            post.isLiked = !post.isLiked
+            
+            // get the current cell
+            guard let cell = self.tableView.cellForRow(at: indexPath) as? PostActionCell
+                else { return }
+            
+            // update the UI of the cell on the main thread
+            DispatchQueue.main.async {
+                self.configureCell(cell, with: post)
+            }
         }
     }
 }
