@@ -27,6 +27,8 @@
 		BAE76CC01EF99245006D683F /* StorageReference+Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE76CBF1EF99245006D683F /* StorageReference+Post.swift */; };
 		BAE76CC21EF997AE006D683F /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAE76CC11EF997AE006D683F /* Home.storyboard */; };
 		BAE76CC51EF9AB1C006D683F /* PostImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE76CC41EF9AB1C006D683F /* PostImageCell.swift */; };
+		BAE76CC71EF9B6F8006D683F /* PostHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE76CC61EF9B6F8006D683F /* PostHeaderCell.swift */; };
+		BAE76CC91EF9B81E006D683F /* PostActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE76CC81EF9B81E006D683F /* PostActionCell.swift */; };
 		BAEFA6CE1EF84653000BC451 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEFA6CD1EF84653000BC451 /* Constants.swift */; };
 		BAEFA6D11EF84A5D000BC451 /* Storyboard+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEFA6D01EF84A5D000BC451 /* Storyboard+Utility.swift */; };
 		BAEFA6D31EF8631C000BC451 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEFA6D21EF8631C000BC451 /* HomeViewController.swift */; };
@@ -56,6 +58,8 @@
 		BAE76CBF1EF99245006D683F /* StorageReference+Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "StorageReference+Post.swift"; path = "Extensions/StorageReference+Post.swift"; sourceTree = "<group>"; };
 		BAE76CC11EF997AE006D683F /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Home.storyboard; path = Storyboards/Home.storyboard; sourceTree = "<group>"; };
 		BAE76CC41EF9AB1C006D683F /* PostImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostImageCell.swift; path = Views/PostImageCell.swift; sourceTree = "<group>"; };
+		BAE76CC61EF9B6F8006D683F /* PostHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostHeaderCell.swift; path = Views/PostHeaderCell.swift; sourceTree = "<group>"; };
+		BAE76CC81EF9B81E006D683F /* PostActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostActionCell.swift; path = Views/PostActionCell.swift; sourceTree = "<group>"; };
 		BAEFA6CD1EF84653000BC451 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Supporting/Constants.swift; sourceTree = "<group>"; };
 		BAEFA6D01EF84A5D000BC451 /* Storyboard+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Storyboard+Utility.swift"; path = "Extensions/Storyboard+Utility.swift"; sourceTree = "<group>"; };
 		BAEFA6D21EF8631C000BC451 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Controllers/HomeViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +187,8 @@
 			isa = PBXGroup;
 			children = (
 				BAE76CC41EF9AB1C006D683F /* PostImageCell.swift */,
+				BAE76CC61EF9B6F8006D683F /* PostHeaderCell.swift */,
+				BAE76CC81EF9B81E006D683F /* PostActionCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -338,6 +344,7 @@
 				BAE76CB01EF95503006D683F /* MainTabBarController.swift in Sources */,
 				BAEFA6D11EF84A5D000BC451 /* Storyboard+Utility.swift in Sources */,
 				BAE76CBA1EF97A1D006D683F /* Post.swift in Sources */,
+				BAE76CC91EF9B81E006D683F /* PostActionCell.swift in Sources */,
 				BAEFA6D31EF8631C000BC451 /* HomeViewController.swift in Sources */,
 				BAE76CC51EF9AB1C006D683F /* PostImageCell.swift in Sources */,
 				BAE76CBE1EF990E9006D683F /* UIImage+Size.swift in Sources */,
@@ -349,6 +356,7 @@
 				BAEFA6CE1EF84653000BC451 /* Constants.swift in Sources */,
 				BAE76CB81EF97563006D683F /* PostService.swift in Sources */,
 				BA63B76E1EF394B800B455F8 /* UserServices.swift in Sources */,
+				BAE76CC71EF9B6F8006D683F /* PostHeaderCell.swift in Sources */,
 				BA349C171EEB3A960084F65F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
