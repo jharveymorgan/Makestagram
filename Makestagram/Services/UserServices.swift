@@ -14,7 +14,7 @@ import FirebaseDatabase
 struct UserService {
     // read/get user from Firebase Database
     static func show(forUID uid: String, completion: @escaping (User?) -> Void) {
-        let ref = Database.database().reference().child("users").child(uid)
+        let ref = DatabaseReference.toLocation(.showUser(uid: uid))
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
             guard let user = User(snapshot: snapshot) else {
                 return completion(nil)
@@ -48,7 +48,7 @@ struct UserService {
     
     // read/get all post(s) from Firebase Database
     static func posts(for user: User, completion: @escaping ([Post]) -> Void) {
-        let ref = Database.database().reference().child("posts").child(user.uid)
+        let ref = DatabaseReference.toLocation(.posts(uid: user.uid))
         
         ref.observe(.value, with: { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {

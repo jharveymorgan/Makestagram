@@ -37,8 +37,6 @@ class CreateUsernameViewController: UIViewController {
                 return
             }
             
-            print("Create new user \(user.username)")
-            
             User.setCurrent(user, writeToUserDefaults: true)
             
             // go to main storyboard

@@ -52,9 +52,7 @@ extension LoginViewController: FUIAuthDelegate {
         // check that user exists by unwrapping optional
         guard  let user = user
             else { return }
-        
-        // path to find user's information in database
-        //let userRef = Database.database().reference().child("users").child(user.uid)
+
         
         // read data from previous path
         UserService.show(forUID: user.uid) { (user) in 

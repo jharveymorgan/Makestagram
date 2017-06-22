@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0574973498B08B97661ED30C /* Pods_Makestagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B8DDDD15B8020B2C7508725 /* Pods_Makestagram.framework */; };
 		BA2E2CB91EF1BFDA003220EF /* CreateUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2E2CB81EF1BFDA003220EF /* CreateUsernameViewController.swift */; };
+		BA332DCB1EFC1ED40054E2ED /* DatabaseReference+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA332DCA1EFC1ED40054E2ED /* DatabaseReference+Location.swift */; };
 		BA349C171EEB3A960084F65F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA349C161EEB3A960084F65F /* AppDelegate.swift */; };
 		BA349C1E1EEB3A960084F65F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA349C1D1EEB3A960084F65F /* Assets.xcassets */; };
 		BA349C2F1EEB3D300084F65F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA349C2E1EEB3D300084F65F /* LaunchScreen.storyboard */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		3B8DDDD15B8020B2C7508725 /* Pods_Makestagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makestagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA2E2CB81EF1BFDA003220EF /* CreateUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateUsernameViewController.swift; path = Controllers/CreateUsernameViewController.swift; sourceTree = "<group>"; };
+		BA332DCA1EFC1ED40054E2ED /* DatabaseReference+Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DatabaseReference+Location.swift"; path = "Extensions/DatabaseReference+Location.swift"; sourceTree = "<group>"; };
 		BA349C131EEB3A960084F65F /* Makestagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Makestagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA349C161EEB3A960084F65F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA349C1D1EEB3A960084F65F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				BAEFA6D01EF84A5D000BC451 /* Storyboard+Utility.swift */,
 				BAE76CBD1EF990E9006D683F /* UIImage+Size.swift */,
 				BAE76CBF1EF99245006D683F /* StorageReference+Post.swift */,
+				BA332DCA1EFC1ED40054E2ED /* DatabaseReference+Location.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				BA2E2CB91EF1BFDA003220EF /* CreateUsernameViewController.swift in Sources */,
 				BAE76CBC1EF97A46006D683F /* User.swift in Sources */,
 				BAEFA6D51EF86333000BC451 /* FindFriendsViewController.swift in Sources */,
+				BA332DCB1EFC1ED40054E2ED /* DatabaseReference+Location.swift in Sources */,
 				BAE76CC01EF99245006D683F /* StorageReference+Post.swift in Sources */,
 				BAEFA6CE1EF84653000BC451 /* Constants.swift in Sources */,
 				BAE76CB81EF97563006D683F /* PostService.swift in Sources */,
