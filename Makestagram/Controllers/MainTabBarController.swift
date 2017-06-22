@@ -13,13 +13,13 @@ class MainTabBarController: UITabBarController {
     // MARK: - Properties
     let photoHelper = MGPhotoHelper()
 
+    // MARK: - Tab Bar Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         photoHelper.completionHandler = { image in
             PostService.create(for: image)
         }
-        
         
         delegate = self
         tabBar.unselectedItemTintColor = .black
@@ -28,6 +28,7 @@ class MainTabBarController: UITabBarController {
 
 }
 
+// MARK: - UITabBarControllerDelegate
 extension MainTabBarController: UITabBarControllerDelegate {
     // present corresponding view controller user selected
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {

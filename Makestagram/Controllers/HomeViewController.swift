@@ -11,6 +11,7 @@ import Kingfisher
 
 class HomeViewController: UIViewController {
     // MARK: - Properties
+    let refreshControl = UIRefreshControl()
     var posts = [Post]()
     let timestampFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -27,12 +28,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         configureTableView()
-        
-        // get posts from Firebase
-        UserService.posts(for: User.current) { (posts) in
-            self.posts = posts
-            self.tableView.reloadData()
-        }
+        reloadTimeline()
     }
     
     // MARK: - Class Methods
@@ -41,6 +37,23 @@ class HomeViewController: UIViewController {
         tableView.tableFooterView = UIView()
         // remove separators from cells
         tableView.separatorStyle = .none
+        
+        // add pull to refresh
+        refreshControl.addTarget(self, action: #selector(reloadTimeline), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+    
+    func reloadTimeline() {
+        // get posts from Firebase
+        UserService.timeline { (posts) in
+            self.posts = posts
+            
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
+            
+            self.tableView.reloadData()
+        }
     }
     
 
@@ -63,7 +76,7 @@ extension HomeViewController: UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "PostHeaderCell") as! PostHeaderCell
-            cell.usernameLabel.text = User.current.username
+            cell.usernameLabel.text = post.poster.username
             
             return cell
         case 1:

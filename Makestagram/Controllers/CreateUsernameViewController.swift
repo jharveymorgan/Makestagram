@@ -47,21 +47,6 @@ class CreateUsernameViewController: UIViewController {
             self.view.window?.makeKeyAndVisible()
             
         }
-        
-//        // go to main storyboard
-//        UserService.create(firUser, username: username) { (user) in
-//            guard let _ = user else { return }
-//            
-//            let storyboard = UIStoryboard(name: "Main", bundle: .main)
-//            
-//            // check main storyboard has an initial view controller
-//            if let initalViewController = storyboard.instantiateInitialViewController() {
-//                // get reference to current window and set the root view controller to the initial view controller
-//                self.view.window?.rootViewController = initalViewController
-//                self.view.window?.makeKeyAndVisible()
-//            }
-//            
-//        }
     }
     
 }// end class

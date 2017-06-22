@@ -79,4 +79,79 @@ struct UserService {
         })
     }
     
+    // get all users of the app
+    static func usersExcludingCurrentUser(completion: @escaping ([User]) -> Void) {
+        let currentUser = User.current
+        
+        // path to read all users in Firebase
+        let ref = Database.database().reference().child("users")
+        
+        // read users node from the database
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return completion([]) }
+            
+            // convert all elements into User and filter out the current user
+            let users = snapshot.flatMap(User.init).filter { $0.uid != currentUser.uid }
+            
+            // new dispatch group to know when asynch tasks are done
+            let dispatchGroup = DispatchGroup()
+            
+            users.forEach { (user) in
+                dispatchGroup.enter()
+                
+                // make a request for each user and see if the user is being followed by the current user
+                FollowService.isUserFollowed(user) { (isFollowed) in
+                    user.isFollowed = isFollowed
+                    dispatchGroup.leave()
+                }
+            }
+            
+            // run completion block when all the follow/relationship data has come back
+            dispatchGroup.notify(queue: .main, execute: { completion(users) })
+        })
+    }
+    
+    // get all of give user's followers UIDs and return them as a string array
+    static func followers(for user: User, completion: @escaping ([String]) -> Void) {
+        let followersRef = Database.database().reference().child("followers").child(user.uid)
+        
+        followersRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let followersDict = snapshot.value as? [String: Bool] else { return completion([]) }
+            
+            let followersKeys = Array(followersDict.keys)
+            completion(followersKeys)
+        })
+    }
+    
+    // get current user's timeline data and return an array of Posts
+    static func timeline(completion: @escaping ([Post]) -> Void) {
+        let currentUser = User.current
+        
+        let timelineRef = Database.database().reference().child("timeline").child(currentUser.uid)
+        timelineRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return completion([]) }
+            
+            let dispatchGroup = DispatchGroup()
+            
+            var posts = [Post]()
+            
+            for postSnap in snapshot {
+                guard let postDict = postSnap.value as? [String: Any], let posterUID = postDict["poster_uid"] as? String else
+                { continue }
+                
+                dispatchGroup.enter()
+                
+                PostService.show(forKey: postSnap.key, posterUID: posterUID) { (post) in
+                    if let post = post {
+                        posts.append(post)
+                    }
+                    
+                    dispatchGroup.leave()
+                }
+            }
+            
+            dispatchGroup.notify(queue: .main, execute: { completion(posts.reversed()) })
+        })
+    }
+    
 }// end struct

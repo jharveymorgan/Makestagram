@@ -30,8 +30,5 @@ struct StorageService {
             // return download URL
             completion(metadata?.downloadURL())
         })
-    
     }
-    
-    
 }
