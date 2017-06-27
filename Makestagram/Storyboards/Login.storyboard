@@ -155,14 +155,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0d-8f-JlM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1274.5" y="87.5"/>
+            <point key="canvasLocation" x="1473" y="87"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="omx-wM-e86">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="nE1-BI-0sS" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XE8-9V-W91">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="XE8-9V-W91">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -173,7 +173,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9PZ-Nq-qxj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.5" y="87.5"/>
+            <point key="canvasLocation" x="-62" y="87"/>
         </scene>
     </scenes>
 </document>
