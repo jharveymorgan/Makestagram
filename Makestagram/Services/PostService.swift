@@ -54,7 +54,19 @@ struct PostService {
             updatedData["posts/\(currentUser.uid)/\(newPostKey)"] = postDict
             
             // write the multi-location update to the database
-            rootRef.updateChildValues(updatedData)
+            //rootRef.updateChildValues(updatedData)
+            rootRef.updateChildValues(updatedData, withCompletionBlock: { (error, ref) in
+                let postCountRef = DatabaseReference.toLocation(.showUser(uid: currentUser.uid)).child("post_count")
+                // completion block to increment the user's post count after adding a new post
+                postCountRef.runTransactionBlock({ (mutableData) -> TransactionResult in
+                    // if value exists, increment it
+                    let currentCount = mutableData.value as? Int ?? 0
+                    mutableData.value = currentCount + 1
+                    
+                    // return updated value
+                    return TransactionResult.success(withValue: mutableData)
+                })
+            })
         }
     }
     

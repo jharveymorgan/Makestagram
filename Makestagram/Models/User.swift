@@ -10,26 +10,35 @@ import Foundation
 import FirebaseDatabase.FIRDataSnapshot
 
 class User: NSObject {
-    // MARK - Properties
+    // MARK: - Properties
     let uid: String
     let username: String
     var isFollowed = false
+    var followerCount: Int?
+    var followingCount: Int?
+    var postCount: Int?
     
-    // MARK - Init
+    // MARK: - Init
     init(uid: String, username: String) {
         self.uid = uid
         self.username = username
         
         super.init()
     }
-    
+    // failable initializer to read and store user data
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String:Any],
-            let username = dict[Constants.UserDefaults.username] as? String
+            let username = dict[Constants.UserDefaults.username] as? String,
+            let followerCount = dict["follower_count"] as? Int,
+            let followingCount = dict["following_count"] as? Int,
+            let postCount = dict["post_count"] as? Int
             else { return nil }
         
         self.uid = snapshot.key
         self.username = username
+        self.followerCount = followerCount
+        self.followingCount = followingCount
+        self.postCount = postCount
         
         super.init()
     }

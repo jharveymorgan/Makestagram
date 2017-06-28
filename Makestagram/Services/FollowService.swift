@@ -20,9 +20,39 @@ struct FollowService {
         ref.updateChildValues(followData) { (error, _) in
             if let error = error {
                 assertionFailure(error.localizedDescription)
+                success(false)
             }
             
+            // create a DispatchGroup to manage the completion of asynchronous requests
+            let dispatchGroup = DispatchGroup()
             
+            // each time a request is made, call enter(), to track request
+            dispatchGroup.enter()
+            
+            // path and completion block to increment the current user's following count after following a new user
+            let followingCountRef = DatabaseReference.toLocation(.showUser(uid: currentUID)).child("following_count")
+            followingCountRef.runTransactionBlock({ (mutableData) -> TransactionResult in
+                // check if value exists, then increment
+                let currentCount = mutableData.value as? Int ?? 0
+                mutableData.value = currentCount + 1
+                
+                return TransactionResult.success(withValue: mutableData)
+            })
+            
+            // make a request to track the incrementation of a user's follower count
+            dispatchGroup.enter()
+            // path and completion block to increment a user's follower count after getting a new follower
+            let followerCountRef = DatabaseReference.toLocation(.showUser(uid: user.uid)).child("follower_count")
+            followerCountRef.runTransactionBlock({ (mutableData) -> TransactionResult in
+                // check if there is value, then increment it
+                let currentCount = mutableData.value as? Int ?? 0
+                mutableData.value = currentCount + 1
+                
+                return TransactionResult.success(withValue: mutableData)
+            })
+            
+            // use dispatch group for original request to get all of user's posts
+            dispatchGroup.enter()
             // get all posts for the user that is being followed (followee)
             UserService.posts(for: user) { (posts) in
                 // get all the post keys for that user
@@ -39,11 +69,15 @@ struct FollowService {
                         assertionFailure(error.localizedDescription)
                     }
                     
-                    // return success based on whether or not there was an error
-                    success(error == nil)
+                    //
+                    dispatchGroup.leave()
                 })
             }
             
+            // success callback after all previous requests have been completed
+            dispatchGroup.notify(queue: .main) {
+                success(true)
+            }
         }
     }
     
@@ -57,8 +91,39 @@ struct FollowService {
         ref.updateChildValues(followData) { (error, _) in
             if let error = error {
                 assertionFailure(error.localizedDescription)
+                success(false)
             }
             
+            // create a DispatchGroup to manage the completion of asynchronous requests
+            let dispatchGroup = DispatchGroup()
+            
+            // each time a request is made, call enter(), to track request
+            dispatchGroup.enter()
+            
+            // path and completion block to increment the current user's following count after following a new user
+            let followingCountRef = DatabaseReference.toLocation(.showUser(uid: currentUID)).child("following_count")
+            followingCountRef.runTransactionBlock({ (mutableData) -> TransactionResult in
+                // check if value exists, then increment
+                let currentCount = mutableData.value as? Int ?? 0
+                mutableData.value = currentCount - 1
+                
+                return TransactionResult.success(withValue: mutableData)
+            })
+            
+            // make a request to track the incrementation of a user's follower count
+            dispatchGroup.enter()
+            // path and completion block to increment a user's follower count after getting a new follower
+            let followerCountRef = DatabaseReference.toLocation(.showUser(uid: user.uid)).child("follower_count")
+            followerCountRef.runTransactionBlock({ (mutableData) -> TransactionResult in
+                // check if there is value, then increment it
+                let currentCount = mutableData.value as? Int ?? 0
+                mutableData.value = currentCount - 1
+                
+                return TransactionResult.success(withValue: mutableData)
+            })
+            
+            // use dispatch group for original request to get all of user's posts
+            dispatchGroup.enter()
             
             // get all posts for the user that is being unfollowed (unfollowee)
             UserService.posts(for: user) { (posts) in
@@ -75,11 +140,15 @@ struct FollowService {
                         assertionFailure(error.localizedDescription)
                     }
                     
-                    // return success based on whether or not there was an error
-                    success(error == nil)
+                    //
+                    dispatchGroup.leave()
                 })
             }
-
+            
+            // success callback after all previous requests have been completed
+            dispatchGroup.notify(queue: .main) {
+                success(true)
+            }
         }
     }
     

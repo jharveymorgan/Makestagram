@@ -13,6 +13,7 @@ extension UIStoryboard{
         case main
         case login
         case findFriends
+        case profile
         
         var filename: String {
             return rawValue.capitalized

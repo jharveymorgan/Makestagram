@@ -27,7 +27,7 @@ struct UserService {
     // write to Firebase Database
     static func create(_ firUser: FIRUser, username: String, completion: @escaping (User?) -> Void) {
         // create dictionary with username
-        let userAttrs = ["username": username]
+        let userAttrs: [String: Any] = ["username": username, "follower_count": 0, "following_count": 0, "post_count": 0]
         
         // get path for where data should be stored
         let ref = Database.database().reference().child("users").child(firUser.uid)
@@ -55,7 +55,7 @@ struct UserService {
                 return completion([])
             }
             
-            // DON'T COMPLETELY UNDERSTAND:
+            // ???: DON'T COMPLETELY UNDERSTAND:
             // dispatch groups allow you to monitor the completion of a group of tasks
             // used here to notify me after all my network requests have been done
             let dispatchGroup = DispatchGroup()
@@ -151,6 +151,24 @@ struct UserService {
             }
             
             dispatchGroup.notify(queue: .main, execute: { completion(posts.reversed()) })
+        })
+    }
+    
+    // get content for user's profile, user object and all of the user's posts
+    static func observeProfile(for user: User, completion: @escaping (DatabaseReference, User?, [Post]) -> Void) -> DatabaseHandle {
+        // path to where user object is read from
+        let userRef = DatabaseReference.toLocation(.showUser(uid: user.uid))
+        
+        // observer to get user object
+        return userRef.observe(.value, with: { snapshot in
+            // check if data is a valid user, if not return an an empty completion block
+            guard let user = User(snapshot: snapshot) else { return completion(userRef, nil, []) }
+            
+            // get all posts for the respective user
+            posts(for: user, completion: { posts in
+                // if successful, return a completion block with reference to the Database Reference, user, and posts
+                completion(userRef, user, posts)
+            })
         })
     }
     

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0574973498B08B97661ED30C /* Pods_Makestagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B8DDDD15B8020B2C7508725 /* Pods_Makestagram.framework */; };
+		BA0906281F0359D9004AD7CA /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA0906271F0359D9004AD7CA /* Profile.storyboard */; };
+		BA09062A1F035E80004AD7CA /* PostThumbImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0906291F035E80004AD7CA /* PostThumbImageCell.swift */; };
+		BA09062C1F03679A004AD7CA /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA09062B1F03679A004AD7CA /* ProfileHeaderView.swift */; };
 		BA2E2CB91EF1BFDA003220EF /* CreateUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2E2CB81EF1BFDA003220EF /* CreateUsernameViewController.swift */; };
 		BA332DCB1EFC1ED40054E2ED /* DatabaseReference+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA332DCA1EFC1ED40054E2ED /* DatabaseReference+Location.swift */; };
 		BA332DD71EFC3D2A0054E2ED /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA332DCD1EFC3D2A0054E2ED /* OpenSans-Bold.ttf */; };
@@ -34,6 +37,7 @@
 		BA4EA4131EEB91B000C2C096 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA4EA4121EEB91B000C2C096 /* Login.storyboard */; };
 		BA4EA4151EEB936000C2C096 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4EA4141EEB936000C2C096 /* LoginViewController.swift */; };
 		BA63B76E1EF394B800B455F8 /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA63B76D1EF394B800B455F8 /* UserServices.swift */; };
+		BA65459D1F02F85F00477C0B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA65459C1F02F85F00477C0B /* ProfileViewController.swift */; };
 		BAE76CB01EF95503006D683F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE76CAF1EF95503006D683F /* MainTabBarController.swift */; };
 		BAE76CB31EF95D2F006D683F /* MGPhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE76CB21EF95D2F006D683F /* MGPhotoHelper.swift */; };
 		BAE76CB51EF97102006D683F /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE76CB41EF97102006D683F /* StorageService.swift */; };
@@ -54,6 +58,9 @@
 
 /* Begin PBXFileReference section */
 		3B8DDDD15B8020B2C7508725 /* Pods_Makestagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makestagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA0906271F0359D9004AD7CA /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = Storyboards/Profile.storyboard; sourceTree = "<group>"; };
+		BA0906291F035E80004AD7CA /* PostThumbImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostThumbImageCell.swift; path = Views/PostThumbImageCell.swift; sourceTree = "<group>"; };
+		BA09062B1F03679A004AD7CA /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileHeaderView.swift; path = Views/ProfileHeaderView.swift; sourceTree = "<group>"; };
 		BA2E2CB81EF1BFDA003220EF /* CreateUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateUsernameViewController.swift; path = Controllers/CreateUsernameViewController.swift; sourceTree = "<group>"; };
 		BA332DCA1EFC1ED40054E2ED /* DatabaseReference+Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DatabaseReference+Location.swift"; path = "Extensions/DatabaseReference+Location.swift"; sourceTree = "<group>"; };
 		BA332DCD1EFC3D2A0054E2ED /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Bold.ttf"; path = "../../../open-sans/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -82,6 +89,7 @@
 		BA4EA4121EEB91B000C2C096 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Storyboards/Login.storyboard; sourceTree = "<group>"; };
 		BA4EA4141EEB936000C2C096 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controllers/LoginViewController.swift; sourceTree = "<group>"; };
 		BA63B76D1EF394B800B455F8 /* UserServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserServices.swift; path = Services/UserServices.swift; sourceTree = "<group>"; };
+		BA65459C1F02F85F00477C0B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Controllers/ProfileViewController.swift; sourceTree = "<group>"; };
 		BAE76CAF1EF95503006D683F /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabBarController.swift; path = Controllers/MainTabBarController.swift; sourceTree = "<group>"; };
 		BAE76CB21EF95D2F006D683F /* MGPhotoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGPhotoHelper.swift; path = Helpers/MGPhotoHelper.swift; sourceTree = "<group>"; };
 		BAE76CB41EF97102006D683F /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageService.swift; path = Services/StorageService.swift; sourceTree = "<group>"; };
@@ -137,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				BA349C301EEB3D380084F65F /* Main.storyboard */,
+				BA0906271F0359D9004AD7CA /* Profile.storyboard */,
 				BA3801381EFAF40E00336704 /* FindFriends.storyboard */,
 				BAE76CC11EF997AE006D683F /* Home.storyboard */,
 				BA4EA4121EEB91B000C2C096 /* Login.storyboard */,
@@ -152,6 +161,7 @@
 				BAEFA6D21EF8631C000BC451 /* HomeViewController.swift */,
 				BAEFA6D41EF86333000BC451 /* FindFriendsViewController.swift */,
 				BAE76CAF1EF95503006D683F /* MainTabBarController.swift */,
+				BA65459C1F02F85F00477C0B /* ProfileViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -245,6 +255,8 @@
 				BAE76CC61EF9B6F8006D683F /* PostHeaderCell.swift */,
 				BAE76CC81EF9B81E006D683F /* PostActionCell.swift */,
 				BA38013A1EFAF6B800336704 /* FindFriendsCell.swift */,
+				BA0906291F035E80004AD7CA /* PostThumbImageCell.swift */,
+				BA09062B1F03679A004AD7CA /* ProfileHeaderView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -340,6 +352,7 @@
 				BA349C331EEB3D410084F65F /* GoogleService-Info.plist in Resources */,
 				BA332DDF1EFC3D2A0054E2ED /* OpenSans-Semibold.ttf in Resources */,
 				BA332DE01EFC3D2A0054E2ED /* OpenSans-SemiboldItalic.ttf in Resources */,
+				BA0906281F0359D9004AD7CA /* Profile.storyboard in Resources */,
 				BA332DD71EFC3D2A0054E2ED /* OpenSans-Bold.ttf in Resources */,
 				BA349C1E1EEB3A960084F65F /* Assets.xcassets in Resources */,
 				BA3801391EFAF40E00336704 /* FindFriends.storyboard in Resources */,
@@ -419,6 +432,8 @@
 				BA3801351EFAAC8600336704 /* LikeService.swift in Sources */,
 				BAEFA6D31EF8631C000BC451 /* HomeViewController.swift in Sources */,
 				BAE76CC51EF9AB1C006D683F /* PostImageCell.swift in Sources */,
+				BA65459D1F02F85F00477C0B /* ProfileViewController.swift in Sources */,
+				BA09062C1F03679A004AD7CA /* ProfileHeaderView.swift in Sources */,
 				BA38013B1EFAF6B800336704 /* FindFriendsCell.swift in Sources */,
 				BAE76CBE1EF990E9006D683F /* UIImage+Size.swift in Sources */,
 				BAE76CB31EF95D2F006D683F /* MGPhotoHelper.swift in Sources */,
@@ -431,6 +446,7 @@
 				BAEFA6CE1EF84653000BC451 /* Constants.swift in Sources */,
 				BAE76CB81EF97563006D683F /* PostService.swift in Sources */,
 				BA332DE21EFC40050054E2ED /* UIColor+Utility.swift in Sources */,
+				BA09062A1F035E80004AD7CA /* PostThumbImageCell.swift in Sources */,
 				BA63B76E1EF394B800B455F8 /* UserServices.swift in Sources */,
 				BAE76CC71EF9B6F8006D683F /* PostHeaderCell.swift in Sources */,
 				BA349C171EEB3A960084F65F /* AppDelegate.swift in Sources */,
