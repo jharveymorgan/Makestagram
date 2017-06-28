@@ -8,7 +8,16 @@
 
 import UIKit
 
+// MARK: - Protocols
+// so ProfileHeaderView can communicate with the ProfileViewController when the settings button is tapped
+protocol ProfileHeaderViewDelegate: class {
+    func didTapSettingsButton(_ button: UIButton, on headerView: ProfileHeaderView)
+}
+
 class ProfileHeaderView: UICollectionReusableView {
+    // MARK: - Properties
+    weak var delegate: ProfileHeaderViewDelegate?
+    
     // MARK: - Subviews
     @IBOutlet weak var postCountLabel: UILabel!
     @IBOutlet weak var followerCountLabel: UILabel!
@@ -27,6 +36,6 @@ class ProfileHeaderView: UICollectionReusableView {
     
     // MARK: - IBActions
     @IBAction func settingsButtonTapped(_ sender: UIButton) {
-        print("settings button tapped")
+        delegate?.didTapSettingsButton(sender, on: self)
     }
 }

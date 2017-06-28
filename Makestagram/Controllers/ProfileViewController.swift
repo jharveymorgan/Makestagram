@@ -8,9 +8,12 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
     // MARK: - Properties
+    var authHandle: AuthStateDidChangeListenerHandle?
+    
     var user: User!
     var posts = [Post]()
     
@@ -35,10 +38,24 @@ class ProfileViewController: UIViewController {
             
             DispatchQueue.main.async { self.collectionView.reloadData() }
         }
+        
+        // listen for state change in current user's authentication status
+        authHandle = Auth.auth().addStateDidChangeListener() { [unowned self] (auth, user) in
+            // check that the user value that was returned is nil
+            guard user == nil else { return }
+            
+            let loginViewController = UIStoryboard.initialViewController(for: .login)
+            self.view.window?.rootViewController = loginViewController
+            self.view.window?.makeKeyAndVisible()
+        }
     }
     
     // remove observer when the view controller is dismissed
     deinit {
+        if let authHandle = authHandle {
+            Auth.auth().removeStateDidChangeListener(authHandle)
+        }
+        
         profileRef?.removeObserver(withHandle: profileHandle)
     }
 
@@ -47,13 +64,17 @@ class ProfileViewController: UIViewController {
 // MARK: - UICollectionViewDataSource
 extension ProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return posts.count
     }
     
     // show thumbnail of all of user's posts
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostThumbImageCell", for: indexPath) as! PostThumbImageCell
-        cell.thumbImageView.backgroundColor = .green
+        
+        // display thumbnail of user's posts
+        let post = posts[indexPath.row]
+        let imageURL = URL(string: post.imageURL)
+        cell.thumbImageView.kf.setImage(with: imageURL)
         
         return cell
     }
@@ -66,6 +87,8 @@ extension ProfileViewController: UICollectionViewDataSource {
         }
         
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ProfileHeaderView", for: indexPath) as! ProfileHeaderView
+        
+        headerView.delegate = self
         
         // display the current user's data
         let postCount = user.postCount ?? 0
@@ -102,5 +125,27 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 1.5
+    }
+}
+
+// MARK: - ProfileHeaderViewDelegate
+extension ProfileViewController: ProfileHeaderViewDelegate {
+    func didTapSettingsButton(_ button: UIButton, on headerView: ProfileHeaderView) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let signOutAction = UIAlertAction(title: "Sign Out", style: .default) { _ in
+            // sign out current user from firebase
+            do {
+                try Auth.auth().signOut()
+            } catch let error as NSError {
+                assertionFailure("Error signing out: \(error.localizedDescription)")
+            }
+        }
+        alertController.addAction(signOutAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true)
     }
 }
