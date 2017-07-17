@@ -90,6 +90,8 @@ struct UserService {
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return completion([]) }
             
+            
+            // ??? REVIEW
             // convert all elements into User and filter out the current user
             let users = snapshot.flatMap(User.init).filter { $0.uid != currentUser.uid }
             
