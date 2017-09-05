@@ -162,7 +162,13 @@
                             <constraint firstAttribute="bottom" secondItem="m8A-cT-xKL" secondAttribute="bottom" id="ubM-Jl-gSb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Makestagram" id="DlM-eV-Auk"/>
+                    <navigationItem key="navigationItem" title="Makestagram" id="DlM-eV-Auk">
+                        <barButtonItem key="rightBarButtonItem" title="MSG" id="CCT-DQ-ZCV">
+                            <connections>
+                                <segue destination="1Px-4V-8WM" kind="presentation" id="gkf-xP-qca"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="m8A-cT-xKL" id="cTs-7g-twr"/>
                     </connections>
@@ -192,6 +198,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ms0-xR-B93" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1015.2" y="581.55922038980509"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="ro0-ZB-CkZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chat" id="1Px-4V-8WM" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yzu-Ro-nks" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="621.60000000000002" y="580.65967016491754"/>
         </scene>
     </scenes>
     <resources>

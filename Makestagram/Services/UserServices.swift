@@ -174,4 +174,64 @@ struct UserService {
         })
     }
     
+    // get a list of users that the current user is following
+    static func following(for user: User = User.current, completion: @escaping ([User]) -> Void) {
+        // reference to location in database for for who the user is following
+        let followingRef = DatabaseReference.toLocation(.showFollowing(uid: user.uid))
+        followingRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            // check data exists
+            guard let followingDict = snapshot.value as? [String: Any] else { return completion([]) }
+            
+            // use dispatch groups to get the user's from their uid and create an array of who the current user is following
+            var following = [User]()
+            let dispatchGroup = DispatchGroup()
+            
+            for uid in followingDict.keys {
+                dispatchGroup.enter()
+                
+                show(forUID: uid, completion: { (user) in
+                    if let user = user {
+                        following.append(user)
+                    }
+                    
+                    dispatchGroup.leave()
+                })
+                
+                // return the array of who the current user is following after all tasks from dispatch groups are done
+                dispatchGroup.notify(queue: .main, execute: { 
+                    completion(following)
+                })
+            }
+        })
+    }
+    
+    // so chats are always up to date
+    static func observeChats(for user: User = User.current, withCompletion completion: @escaping (DatabaseReference, [Chat]) -> Void) -> DatabaseHandle {
+        // refernce to current user's chats
+        let ref = DatabaseReference.toLocation(.showChats(currentUID: user.uid))
+        
+        // observe when the chat node is changed in the database, if the value changes the completion handler is executed
+        return ref.observe(.value, with: { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
+                return completion(ref, [])
+            }
+            
+            let chats = snapshot.flatMap(Chat.init)
+            completion(ref, chats)
+        })
+    }
+    
+    // observe messages within a chat, to continuously display the last message sent
+    static func observeMessages(forChatKey chatKey: String, completion: @escaping (DatabaseReference, Message?) -> Void) -> DatabaseHandle {
+        let messagesRef = DatabaseReference.toLocation(.showMessages(chatKey: chatKey))
+        
+        return messagesRef.observe(.childAdded, with: { snapshot in
+            guard let message = Message(snapshot: snapshot) else {
+                return completion(messagesRef, nil)
+            }
+            
+            completion(messagesRef, message)
+        })
+    }
+    
 }// end struct

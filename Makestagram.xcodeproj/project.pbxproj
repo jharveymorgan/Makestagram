@@ -11,6 +11,9 @@
 		BA0906281F0359D9004AD7CA /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA0906271F0359D9004AD7CA /* Profile.storyboard */; };
 		BA09062A1F035E80004AD7CA /* PostThumbImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0906291F035E80004AD7CA /* PostThumbImageCell.swift */; };
 		BA09062C1F03679A004AD7CA /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA09062B1F03679A004AD7CA /* ProfileHeaderView.swift */; };
+		BA1456EA1F22803C000DDF72 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1456E91F22803C000DDF72 /* Chat.swift */; };
+		BA1456EC1F228404000DDF72 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1456EB1F228404000DDF72 /* Message.swift */; };
+		BA1456EE1F229354000DDF72 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1456ED1F229354000DDF72 /* ChatService.swift */; };
 		BA2E2CB91EF1BFDA003220EF /* CreateUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2E2CB81EF1BFDA003220EF /* CreateUsernameViewController.swift */; };
 		BA332DCB1EFC1ED40054E2ED /* DatabaseReference+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA332DCA1EFC1ED40054E2ED /* DatabaseReference+Location.swift */; };
 		BA332DD71EFC3D2A0054E2ED /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA332DCD1EFC3D2A0054E2ED /* OpenSans-Bold.ttf */; };
@@ -34,10 +37,16 @@
 		BA3801371EFAE3D000336704 /* FollowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3801361EFAE3D000336704 /* FollowService.swift */; };
 		BA3801391EFAF40E00336704 /* FindFriends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA3801381EFAF40E00336704 /* FindFriends.storyboard */; };
 		BA38013B1EFAF6B800336704 /* FindFriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA38013A1EFAF6B800336704 /* FindFriendsCell.swift */; };
+		BA3CDCA41F2B87700077D518 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA3CDCA31F2B87700077D518 /* Chat.storyboard */; };
+		BA3CDCA61F2B88610077D518 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3CDCA51F2B88610077D518 /* ChatListViewController.swift */; };
+		BA3CDCA81F2B8FA10077D518 /* ChatListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3CDCA71F2B8FA10077D518 /* ChatListCell.swift */; };
 		BA4EA4131EEB91B000C2C096 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA4EA4121EEB91B000C2C096 /* Login.storyboard */; };
 		BA4EA4151EEB936000C2C096 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4EA4141EEB936000C2C096 /* LoginViewController.swift */; };
 		BA63B76E1EF394B800B455F8 /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA63B76D1EF394B800B455F8 /* UserServices.swift */; };
 		BA65459D1F02F85F00477C0B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA65459C1F02F85F00477C0B /* ProfileViewController.swift */; };
+		BAD3C2131F5F582400B2CFF9 /* NewChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD3C2121F5F582400B2CFF9 /* NewChatViewController.swift */; };
+		BAD3C2151F5F5A6400B2CFF9 /* NewChatUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD3C2141F5F5A6400B2CFF9 /* NewChatUserCell.swift */; };
+		BAD3C2171F5F64B300B2CFF9 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD3C2161F5F64B300B2CFF9 /* ChatViewController.swift */; };
 		BAE76CB01EF95503006D683F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE76CAF1EF95503006D683F /* MainTabBarController.swift */; };
 		BAE76CB31EF95D2F006D683F /* MGPhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE76CB21EF95D2F006D683F /* MGPhotoHelper.swift */; };
 		BAE76CB51EF97102006D683F /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE76CB41EF97102006D683F /* StorageService.swift */; };
@@ -61,6 +70,9 @@
 		BA0906271F0359D9004AD7CA /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = Storyboards/Profile.storyboard; sourceTree = "<group>"; };
 		BA0906291F035E80004AD7CA /* PostThumbImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostThumbImageCell.swift; path = Views/PostThumbImageCell.swift; sourceTree = "<group>"; };
 		BA09062B1F03679A004AD7CA /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileHeaderView.swift; path = Views/ProfileHeaderView.swift; sourceTree = "<group>"; };
+		BA1456E91F22803C000DDF72 /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Chat.swift; path = Models/Chat.swift; sourceTree = "<group>"; };
+		BA1456EB1F228404000DDF72 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Models/Message.swift; sourceTree = "<group>"; };
+		BA1456ED1F229354000DDF72 /* ChatService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatService.swift; path = Services/ChatService.swift; sourceTree = "<group>"; };
 		BA2E2CB81EF1BFDA003220EF /* CreateUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateUsernameViewController.swift; path = Controllers/CreateUsernameViewController.swift; sourceTree = "<group>"; };
 		BA332DCA1EFC1ED40054E2ED /* DatabaseReference+Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DatabaseReference+Location.swift"; path = "Extensions/DatabaseReference+Location.swift"; sourceTree = "<group>"; };
 		BA332DCD1EFC3D2A0054E2ED /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Bold.ttf"; path = "../../../open-sans/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -86,10 +98,16 @@
 		BA3801361EFAE3D000336704 /* FollowService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FollowService.swift; path = Services/FollowService.swift; sourceTree = "<group>"; };
 		BA3801381EFAF40E00336704 /* FindFriends.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FindFriends.storyboard; path = Storyboards/FindFriends.storyboard; sourceTree = "<group>"; };
 		BA38013A1EFAF6B800336704 /* FindFriendsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FindFriendsCell.swift; path = Views/FindFriendsCell.swift; sourceTree = "<group>"; };
+		BA3CDCA31F2B87700077D518 /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Chat.storyboard; path = Storyboards/Chat.storyboard; sourceTree = "<group>"; };
+		BA3CDCA51F2B88610077D518 /* ChatListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatListViewController.swift; path = Controllers/ChatListViewController.swift; sourceTree = "<group>"; };
+		BA3CDCA71F2B8FA10077D518 /* ChatListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatListCell.swift; path = Views/ChatListCell.swift; sourceTree = "<group>"; };
 		BA4EA4121EEB91B000C2C096 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Storyboards/Login.storyboard; sourceTree = "<group>"; };
 		BA4EA4141EEB936000C2C096 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controllers/LoginViewController.swift; sourceTree = "<group>"; };
 		BA63B76D1EF394B800B455F8 /* UserServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserServices.swift; path = Services/UserServices.swift; sourceTree = "<group>"; };
 		BA65459C1F02F85F00477C0B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Controllers/ProfileViewController.swift; sourceTree = "<group>"; };
+		BAD3C2121F5F582400B2CFF9 /* NewChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewChatViewController.swift; path = Controllers/NewChatViewController.swift; sourceTree = "<group>"; };
+		BAD3C2141F5F5A6400B2CFF9 /* NewChatUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewChatUserCell.swift; path = Views/NewChatUserCell.swift; sourceTree = "<group>"; };
+		BAD3C2161F5F64B300B2CFF9 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatViewController.swift; path = Controllers/ChatViewController.swift; sourceTree = "<group>"; };
 		BAE76CAF1EF95503006D683F /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabBarController.swift; path = Controllers/MainTabBarController.swift; sourceTree = "<group>"; };
 		BAE76CB21EF95D2F006D683F /* MGPhotoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGPhotoHelper.swift; path = Helpers/MGPhotoHelper.swift; sourceTree = "<group>"; };
 		BAE76CB41EF97102006D683F /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageService.swift; path = Services/StorageService.swift; sourceTree = "<group>"; };
@@ -148,6 +166,7 @@
 				BA0906271F0359D9004AD7CA /* Profile.storyboard */,
 				BA3801381EFAF40E00336704 /* FindFriends.storyboard */,
 				BAE76CC11EF997AE006D683F /* Home.storyboard */,
+				BA3CDCA31F2B87700077D518 /* Chat.storyboard */,
 				BA4EA4121EEB91B000C2C096 /* Login.storyboard */,
 			);
 			name = Storyboards;
@@ -162,6 +181,9 @@
 				BAEFA6D41EF86333000BC451 /* FindFriendsViewController.swift */,
 				BAE76CAF1EF95503006D683F /* MainTabBarController.swift */,
 				BA65459C1F02F85F00477C0B /* ProfileViewController.swift */,
+				BA3CDCA51F2B88610077D518 /* ChatListViewController.swift */,
+				BAD3C2121F5F582400B2CFF9 /* NewChatViewController.swift */,
+				BAD3C2161F5F64B300B2CFF9 /* ChatViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -227,6 +249,7 @@
 				BAE76CB71EF97563006D683F /* PostService.swift */,
 				BA3801341EFAAC8600336704 /* LikeService.swift */,
 				BA3801361EFAE3D000336704 /* FollowService.swift */,
+				BA1456ED1F229354000DDF72 /* ChatService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -236,6 +259,8 @@
 			children = (
 				BAE76CBB1EF97A46006D683F /* User.swift */,
 				BAE76CB91EF97A1D006D683F /* Post.swift */,
+				BA1456E91F22803C000DDF72 /* Chat.swift */,
+				BA1456EB1F228404000DDF72 /* Message.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -257,6 +282,8 @@
 				BA38013A1EFAF6B800336704 /* FindFriendsCell.swift */,
 				BA0906291F035E80004AD7CA /* PostThumbImageCell.swift */,
 				BA09062B1F03679A004AD7CA /* ProfileHeaderView.swift */,
+				BA3CDCA71F2B8FA10077D518 /* ChatListCell.swift */,
+				BAD3C2141F5F5A6400B2CFF9 /* NewChatUserCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -359,6 +386,7 @@
 				BAE76CC21EF997AE006D683F /* Home.storyboard in Resources */,
 				BA332DD81EFC3D2A0054E2ED /* OpenSans-BoldItalic.ttf in Resources */,
 				BA4EA4131EEB91B000C2C096 /* Login.storyboard in Resources */,
+				BA3CDCA41F2B87700077D518 /* Chat.storyboard in Resources */,
 				BA332DDE1EFC3D2A0054E2ED /* OpenSans-Regular.ttf in Resources */,
 				BA349C2F1EEB3D300084F65F /* LaunchScreen.storyboard in Resources */,
 				BA332DDB1EFC3D2A0054E2ED /* OpenSans-Italic.ttf in Resources */,
@@ -422,6 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA3CDCA81F2B8FA10077D518 /* ChatListCell.swift in Sources */,
 				BA3801371EFAE3D000336704 /* FollowService.swift in Sources */,
 				BAE76CB51EF97102006D683F /* StorageService.swift in Sources */,
 				BA4EA4151EEB936000C2C096 /* LoginViewController.swift in Sources */,
@@ -436,20 +465,27 @@
 				BA09062C1F03679A004AD7CA /* ProfileHeaderView.swift in Sources */,
 				BA38013B1EFAF6B800336704 /* FindFriendsCell.swift in Sources */,
 				BAE76CBE1EF990E9006D683F /* UIImage+Size.swift in Sources */,
+				BA1456EA1F22803C000DDF72 /* Chat.swift in Sources */,
 				BAE76CB31EF95D2F006D683F /* MGPhotoHelper.swift in Sources */,
+				BAD3C2151F5F5A6400B2CFF9 /* NewChatUserCell.swift in Sources */,
 				BA2E2CB91EF1BFDA003220EF /* CreateUsernameViewController.swift in Sources */,
 				BA332DE41EFC41010054E2ED /* UIFont+Utility.swift in Sources */,
+				BA3CDCA61F2B88610077D518 /* ChatListViewController.swift in Sources */,
 				BAE76CBC1EF97A46006D683F /* User.swift in Sources */,
 				BAEFA6D51EF86333000BC451 /* FindFriendsViewController.swift in Sources */,
 				BA332DCB1EFC1ED40054E2ED /* DatabaseReference+Location.swift in Sources */,
+				BA1456EE1F229354000DDF72 /* ChatService.swift in Sources */,
 				BAE76CC01EF99245006D683F /* StorageReference+Post.swift in Sources */,
 				BAEFA6CE1EF84653000BC451 /* Constants.swift in Sources */,
 				BAE76CB81EF97563006D683F /* PostService.swift in Sources */,
 				BA332DE21EFC40050054E2ED /* UIColor+Utility.swift in Sources */,
 				BA09062A1F035E80004AD7CA /* PostThumbImageCell.swift in Sources */,
 				BA63B76E1EF394B800B455F8 /* UserServices.swift in Sources */,
+				BA1456EC1F228404000DDF72 /* Message.swift in Sources */,
 				BAE76CC71EF9B6F8006D683F /* PostHeaderCell.swift in Sources */,
 				BA349C171EEB3A960084F65F /* AppDelegate.swift in Sources */,
+				BAD3C2171F5F64B300B2CFF9 /* ChatViewController.swift in Sources */,
+				BAD3C2131F5F582400B2CFF9 /* NewChatViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,9 +13,18 @@ extension DatabaseReference {
     enum MGLocation {
         // cases to read and write to Firebase Database
         case root
+        
         case posts(uid: String)
         case showPost(uid: String, postKey: String)
+        
         case showUser(uid: String)
+        case showFollowing(uid: String)
+        
+        case chats(currentUID: String)
+        case showChats(currentUID: String)
+        
+        case messages(chatKey: String)
+        case showMessages(chatKey: String)
         
         // convert the case into a DatabaseReference
         func asDatabaseReference() -> DatabaseReference {
@@ -31,6 +40,16 @@ extension DatabaseReference {
                 return root.child("posts").child(uid).child(postKey)
             case .showUser(let uid):
                 return root.child("users").child(uid)
+            case .showFollowing(let uid):
+                return root.child("following").child(uid)
+            case .chats(let currentUID):
+                return root.child("chats").child(currentUID).childByAutoId()
+            case .showChats(let currentUID):
+                return root.child("chats").child(currentUID)
+            case .messages(let chatKey):
+                return root.child("messages").child(chatKey).childByAutoId()
+            case .showMessages(let chatKey):
+                return root.child("messages").child(chatKey)
             }
         }
     }
