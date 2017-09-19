@@ -43,7 +43,7 @@ class HomeViewController: UIViewController {
         tableView.addSubview(refreshControl)
     }
     
-    func reloadTimeline() {
+    @objc func reloadTimeline() {
         // get posts from Firebase
         UserService.timeline { (posts) in
             self.posts = posts
